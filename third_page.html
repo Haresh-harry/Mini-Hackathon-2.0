@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game Questions</title>
+    <link rel="stylesheet" href="third_page.css">
+</head>
+
+<body>
+    <div class="main_content">
+        <div class="logos">
+            <img class="logo" src="images/kohli-logo.jpeg" alt="">
+            <img class="logo" src="images/vs-img.png" alt="">
+            <img class="logo" src="images/dhoni-logo.jpeg" alt="">
+        </div>
+        <div class="user">
+            <h4 id="displayUsername1"></h4>
+            <h4 id="displayUsername2"></h4>
+        </div>
+
+        <div id="output">Loading questions...</div>
+        
+        <button id="nextButton" style="display: none;">Next Question</button>
+        
+        <div class="button_div">
+            <button id="playAgainButton" style="display: none;">Play Again</button>
+            <button id="exitButton" style="display: none;">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        const retrievedListString = localStorage.getItem('selectedCategory');
+        if (retrievedListString) {
+            const retrievedList = JSON.parse(retrievedListString);
+            console.log(retrievedList, "list");
+        }
+
+        const username1 = localStorage.getItem('username1');
+        const username2 = localStorage.getItem('username2');
+        document.getElementById('displayUsername1').textContent = username1;
+        document.getElementById('displayUsername2').textContent = username2;
+
+        const allQuestions = JSON.parse(localStorage.getItem('allQuestions'));
+        const outputDiv = document.getElementById('output');
+        const nextButton = document.getElementById('nextButton');
+        const playAgainButton = document.getElementById('playAgainButton');
+        const exitButton = document.getElementById('exitButton');
+
+        let currentQuestionIndex = 0;
+        let currentPlayer = 1;
+        let player1Score = 0;
+        let player2Score = 0;
+
+        outputDiv.innerHTML = '';
+
+        if (!allQuestions || allQuestions.length === 0) {
+            outputDiv.innerText = 'No questions found.';
+        } else {
+            displayQuestion(currentQuestionIndex);
+            nextButton.style.display = 'block';
+        }
+
+        nextButton.addEventListener('click', () => {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                const answerValue = selectedAnswer.value;
+                const currentQuestion = allQuestions[currentQuestionIndex];
+                const isCorrect = answerValue === currentQuestion.correctAnswer;
+
+                if (isCorrect) {
+                    const scoreMap = { 'easy': 10, 'medium': 15, 'hard': 20 };
+                    const scoreIncrement = scoreMap[currentQuestion.difficulty] || 0;
+
+
+                    if (currentPlayer === 1) {
+                        player1Score += scoreIncrement;
+                    } else {
+                        player2Score += scoreIncrement;
+                    }
+                }
+
+                currentPlayer = currentPlayer === 1 ? 2 : 1;
+                currentQuestionIndex++;
+
+
+                if (currentQuestionIndex < allQuestions.length) {
+                    displayQuestion(currentQuestionIndex);
+                } else {
+                    showFinalResults();
+                }
+            } else {
+                alert("Please select an answer before proceeding.");
+            }
+        });
+
+        function displayQuestion(index) {
+            const question = allQuestions[index];
+            const allAnswers = [question.correctAnswer, ...question.incorrectAnswers].sort(() => Math.random() - 0.5);
+
+            outputDiv.innerHTML = `
+                <div class="question-card">
+                 <b>Difficulty:</b> <span class="difficulty">${question.difficulty}</span> <br><br>
+                    <b>Question ${index + 1}:</b> ${question.question.text} <br><br>
+                    <strong>${currentPlayer === 1 ? username1 : username2}'s Turn</strong> <br><br>
+                    <b>Options</b>
+                    <form id="answerForm">
+                        ${allAnswers.map(answer => `
+                            <label>
+                                <input type="radio" name="answer" value="${answer}"> ${answer}
+                            </label><br>
+                        `).join('')}
+                    </form>
+                </div>
+            `;
+        }
+
+        function showFinalResults() {
+            outputDiv.innerHTML = `
+        <h2>Game Over</h2>
+        <p>${username1}'s Score: ${player1Score}</p>
+        <p>${username2}'s Score: ${player2Score}</p>
+        <h3>
+            ${player1Score === 0 && player2Score === 0 ? "both failed!😢"
+                    : player1Score > player2Score ? `${username1} is the winner!🎉`
+                        : player2Score > player1Score ? `${username2} is the winner!🎉`
+                            : "It's a tie! 😅"
+                }
+        </h3>
+    `;
+            nextButton.style.display = 'none';
+            showEndButtons();
+        }
+
+        function showEndButtons() {
+            playAgainButton.style.display = 'inline-block';
+            exitButton.style.display = 'inline-block';
+        }
+
+
+        playAgainButton.addEventListener('click', () => {
+            window.location.href = 'second_page.html';
+        });
+
+        exitButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

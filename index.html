@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Battle Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main_content">
+        <div id="heading">
+            <h1><b>Trivia Game</b></h1>
+        </div>
+        <div class="logos">
+            <img class="logo-left" src="images/kohli-logo.jpeg" alt="">
+            <img class="logo-vs" src="images/vs-img.png" alt="">
+            <img class="logo-right" src="images/dhoni-logo.jpeg" alt="">
+        </div>
+        <div class="placeholder">
+            <input type="text" placeholder="Player-1" id="username1" class="placeholder1" required>
+            <input type="text" placeholder="Player-2" id="username2" class="placeholder2" required>
+        </div>
+        <div class="play_button">
+            <button id="startButton"><b>Start</b></button>
+        </div>
+    </div>
+
+    <script>
+        function storeUsername() {
+            const username1Input = document.getElementById('username1');
+            const username2Input = document.getElementById('username2');
+
+            if (username1Input.value && username2Input.value) {
+                localStorage.setItem('username1', username1Input.value);
+                localStorage.setItem('username2', username2Input.value);
+                window.location.href = 'second_page.html';
+            } else {
+                alert("Please Enter Usernames.");
+            }
+        }
+
+        document.getElementById('startButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            storeUsername();
+        });
+    </script>
+</body>
+</html>

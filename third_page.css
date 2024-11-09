@@ -1,0 +1,90 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+  }
+  .main_content{
+    background-color: bisque;
+    height: 650px;
+    width: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 30px 300px;
+    padding: 20px;
+  }
+  .logos{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .logo{
+    width: 80px;
+    border-radius: 50%;
+  }
+
+  .user{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  #displayUsername1{
+    font-size: 30px;
+    margin-left: 100px;
+    color: black;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+  }
+  #displayUsername2{
+    font-size: 30px;
+    margin-right: 100px;
+    color: black;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+  }
+  #output {
+    margin: 0px 50px 30px 50px;
+}
+
+.question-card {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: rgb(141, 225, 255);
+}
+.button_div{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+button{
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  background-color: lightgreen;
+  padding:5px;
+  margin-left: 720px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+button:hover{
+  background-color: rgb(63, 255, 25);
+  transform: scale(1.1);
+  transform: scale(1.1);
+  width: 100px;
+  height: 55px;
+  transition: 200ms linear; 
+}
+.outputDiv{
+  background-color: black;
+}
+h2,h3,p{
+  font-size: 38px;
+  text-align: center;
+}
+strong{
+  font-size: xx-large;
+}
+b{
+  font-size: 20px;
+}

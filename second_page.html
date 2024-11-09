@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Battle Game</title>
+    <link rel="stylesheet" href="second_page.css">
+</head>
+
+<body>
+    <div class="main_content">
+
+        <div class="logos">
+            <img class="logo" src="images/kohli-logo.jpeg" alt="">
+            <img class="logo-vs" src="images/vs-img.png" alt="">
+            <img class="logo" src="images/dhoni-logo.jpeg" alt="">
+        </div>
+
+        <div class="user">
+            <h4 id="displayUsername1"></h4>
+            <h4 id="displayUsername2"></h4>
+        </div>
+
+        <div class="trivia_packs">
+            <img src="images/subject-logo.png" alt="packs" height="70px">
+            <div class="category-section">
+                <select class="dropdown-content" id="categoryDropdown">
+                    <option value="" disabled selected>Select a Category</option>
+                    <option value="arts & iterature">Arts & Literature</option>
+                    <option value="general_knowledge">General Knowledge</option>
+                    <option value="society_and_culture">Society & Culture</option>
+                    <option value="food_and_drink">Food & Drink</option>
+                    <option value="film_and_tv">Film & TV</option>
+                    <option value="geography">Geography</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="music">Music</option>
+                    <option value="sports">Sports</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button_div">
+            <button class="exit_button">Exit</button>
+            <button id="fetchQuestionsButton" class="play_button" disabled>Play</button>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById('displayUsername1').textContent = localStorage.getItem('username1');
+        document.getElementById('displayUsername2').textContent = localStorage.getItem('username2');
+
+
+        const fetchQuestionsButton = document.getElementById('fetchQuestionsButton');
+        const categoryDropdown = document.getElementById('categoryDropdown');
+
+        categoryDropdown.addEventListener('change', function () {
+            fetchQuestionsButton.disabled = !this.value;
+            storeSelectedCategory(this.value);
+        });
+
+
+        fetchQuestionsButton.addEventListener('click', fetchQuestionsByCategory);
+        function fetchQuestionsByCategory() {
+            const selectedCategory = categoryDropdown.value;
+
+
+            fetch("https://the-trivia-api.com/v2/questions?limit=100")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    const selectedQuestions = [];
+                    const questions = data.filter(function (question) {
+                        return question.category === selectedCategory;
+                    });
+
+                    const maxQuestionsPerDifficulty = 2;
+                    let easyCount = 0;
+                    let mediumCount = 0;
+                    let hardCount = 0;
+
+
+                    let easyQuestions = [];
+                    let mediumQuestions = [];
+                    let hardQuestions = [];
+
+                    questions.forEach(function (question) {
+                        if (question.difficulty === 'easy') {
+                            if (easyCount < maxQuestionsPerDifficulty) {
+                                easyQuestions.push(question);
+                                easyCount++;
+                            }
+                        } else if (question.difficulty === 'medium') {
+                            if (mediumCount < maxQuestionsPerDifficulty) {
+                                mediumQuestions.push(question);
+                                mediumCount++;
+                            }
+                        } else if (question.difficulty === 'hard') {
+                            if (hardCount < maxQuestionsPerDifficulty) {
+                                hardQuestions.push(question);
+                                hardCount++;
+                            }
+                        }
+                    });
+                    selectedQuestions.push(...easyQuestions, ...mediumQuestions, ...hardQuestions);
+
+                    localStorage.setItem('allQuestions', JSON.stringify(selectedQuestions));
+                    window.location.href = 'third_page.html';
+                })
+                .catch(function (error) {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        document.querySelector('.Exit_button').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

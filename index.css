@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Matemasie&display=swap');
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+}
+.main_content{
+  background-color: bisque;
+  height: 650px;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 30px 300px;
+  padding: 20px;
+}
+
+#heading {
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 50px;
+  margin-bottom: 50px;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+}
+.logos{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.logo-left{
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-left: 80px;
+}
+.logo-right{
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 80px;
+}
+.logo-vs {
+  width: 100px;
+  border-radius: 50px;
+}
+.placeholder{
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  text-align: center;
+}
+
+.placeholder1 {
+  margin-left: 130px;
+  border-radius: 5px;
+  padding-left: 5px;
+  width: 150px;
+}
+.placeholder2 {
+  margin-right: 130px;
+  border-radius: 5px;
+  padding-left: 5px;
+  width: 150px;
+}
+
+p{
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+.play_button{
+  display: flex;
+  justify-content: center;
+}
+button{
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: greenyellow;
+  margin-top: 100px;
+  box-shadow: 0 0 10px rgb(4, 228, 19);
+}
+button:hover {
+  transform: scale(1.1);
+  width: 110px;
+  height: 50px;
+  transition: 500ms linear; 
+}

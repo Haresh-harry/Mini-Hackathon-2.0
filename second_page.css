@@ -1,0 +1,108 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+}
+.main_content{
+  background-color: bisque;
+  height: 650px;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 30px 300px;
+  padding: 20px;
+}
+.logos{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.logo{
+  border: 1px solid black;
+  margin-top: 60px;
+  width: 80px;
+  border-radius: 50%;
+}
+.logo-vs{
+  margin-top: 60px;
+  width: 80px;
+  border-radius: 50%;
+}
+.user{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  height: 30px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+}
+#displayUsername1{
+  font-size: 30px;
+  margin-left: 110px;
+  color: black;
+}
+#displayUsername2{
+  font-size: 30px;
+  margin-right: 110px;
+  color: black;
+}
+.trivia_packs{
+  height: 80px;
+  width: 400px;
+  margin: 100px 250px 100px 250px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: wheat;
+  font-size: 30px;
+  display: flex;
+  margin-bottom: 60px;
+}
+.trivia_packs img {
+  padding-left: 20px;
+  padding: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.category-section{
+    margin-top: 18px;
+    margin-bottom: auto;
+    margin-left: 30px;
+    width: 100px;
+}
+.category-section:hover {
+  transform: scale(1.1);
+  width: 120px;
+  height: 60px;
+  transition: 100ms linear; 
+}
+.button_div{
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+button{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background-color: greenyellow;
+    padding:5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.play_button:hover{
+  transform: scale(1.1);
+  background-color: rgb(26, 255, 0);
+  transform: scale(1.1);
+  width: 200px;
+  height: 60px;
+  transition: 200ms linear; 
+}
+.exit_button:hover{
+  transform: scale(1.1);
+  background-color: red;
+  transform: scale(1.1);
+  width: 200px;
+  height: 60px;
+  transition: 200ms linear; 
+}
