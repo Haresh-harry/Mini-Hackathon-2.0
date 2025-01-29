@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trivia Game</title>
+</head>
+<body>
+    <div id="gameArea">
+
+        <div id="playerSetupSection">
+            <div id="title">
+                <h2>Trivia Game</h2>
+            </div><br>
+            <div id="playerNames">
+                <div id="player">
+                    <label for="">Player-1</label>
+                    <input type="text" id="s1-player1" placeholder="enter name">
+                </div><br>
+                <div id="player">
+                    <label for="">Player-2</label>
+                    <input type="text" id="s1-player2" placeholder="enter name">
+                </div>
+            </div><br>
+            <div id="action1">
+                <button id="submitBtn">Submit</button>
+            </div>
+        </div>
+<br>
+        <div id="categorySelectionSection">
+            <div id="title">
+                <h2>Trivia Game</h2>
+            </div><br>
+            <div id="displayNames">
+                <h3 id="s2-player1">Player1</h3>
+                <h3 id="s2-player2">Player2</h3>
+            </div><br>
+            <div id="selectBox">
+                <p>Select Category</p>
+                <select id="selectCategory">
+                    <option value="" disabled selected>select here</option>
+                    <option value="music">Music</option>
+                    <option value="sport_and_leisure">Sport & Leisure</option>
+                    <option value="film_and_tv">Film & TV</option>
+                    <option value="arts_and_literature">Arts & Literature</option>
+                    <option value="history">History</option>
+                    <option value="society_and_culture">Society & culture</option>
+                    <option value="science">Science</option>
+                    <option value="geography">Geography</option>
+                    <option value="food_and_drink">Food & Drink</option>
+                    <option value="general_knowledge">General Knowledge</option>
+                </select>
+            </div><br>
+            <div id="action2">
+                <button id="back">Back</button>
+                <button id="play">Play</button>
+            </div>
+        </div>
+<br>
+        <div id="questionDisplaySection">
+            <div id="currentTurn">- -</div>
+            <div id="fetchQuestions"></div>
+            <div id="action3">
+                <button id="next">Next</button>
+            </div>
+        </div>
+<br>
+        <div id="gamePlaySection">
+            <div id="displayNames">
+                <h3 id="s4-player1">Player1</h3>
+                <h3 id="s4-player2">Player2</h3>
+            </div>
+            <div id="fetchQuestions"></div>
+            <div id="action4">
+                <button id="playAgain">Play Again</button>
+                <button id="end">End</button>
+            </div>
+        </div>
+<br>
+        <div id="resultSection">
+            <div id="displayWinner"></div>
+            <div id="action5">
+                <button id="exit">Exit</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

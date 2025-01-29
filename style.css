@@ -1,0 +1,221 @@
+body {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-image: url(https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148954968.jpg?semt=ais_hybrid);
+    padding-top: 15vh;
+}
+
+#gameArea {
+    /* background-color: black; */
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(20,20,122,1) 67%);
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid rgb(6, 23, 88);
+    border-radius: 1rem;
+    box-shadow: rgb(16, 60, 222) -1px -1px 15px;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+/* playerSetupSection styles */
+#playerSetupSection {
+    display: block;
+    margin: 70px;
+    padding: 30px;
+    width: 30vw;
+    /* border: 1px solid white; */
+}
+#playerSetupSection #playerNames {
+    /* border: 1px solid white; */
+    padding: 0px 50px 0px;
+}
+#action1 button {
+    width: 100px;
+    height: 30px;
+    margin-top: 50px;
+}
+
+/* categorySelectionSection styles */
+#categorySelectionSection {
+    display: none;
+    width: 30vw;
+    margin: 70px;
+    padding: 30px;
+    /* border: 1px solid white; */
+}
+#categorySelectionSection #displayNames {
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: space-around;
+}
+#categorySelectionSection #selectBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#selectBox #selectCategory {
+    height: 2rem;
+    width: 12rem;
+}
+#action2 {
+    display: flex;
+    justify-content: space-around;
+}
+#action2 button {
+    width: 100px;
+    height: 30px;
+    margin-top: 50px;
+}
+
+/* questionDisplaySection styles */
+#questionDisplaySection {
+    display: none;
+    height: 40vh;
+    width: 50vw;
+    margin: 60px;
+    padding: 30px;
+    /* border: 1px solid white; */
+}
+#questionDisplaySection #displayNames {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+#questionDisplaySection #fetchQuestions {
+    /* border: 1px solid white; */
+    height: 30vh;
+}
+#action3 button {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+/* gamePlaySection styles */
+#gamePlaySection {
+    display: none;
+    height: 40vh;
+    width: 50vw;
+    margin: 60px;
+    padding: 30px;
+    /* border: 1px solid white; */
+}
+#gamePlaySection #displayNames {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+#gamePlaySection #fetchQuestions {
+    /* border: 1px solid white; */
+    height: 20vh;
+}
+#action4 {
+    display: flex;
+    justify-content: space-around;
+}
+#action4 button {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+/* resultSection styles */
+#resultSection {
+    display: none;
+    /* border: 1px solid white; */
+    height: 30vh;
+    width: 40vw;
+}
+#action5 {
+    display: flex;
+    justify-content: center;
+}
+#action5 button {
+    margin-top: 40px;
+    width: 100px;
+    height: 30px;
+}
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+    body {
+        padding-top: 10vh;
+    }
+
+    #gameArea {
+        height: auto;
+        width: 90vw;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    #playerSetupSection, #categorySelectionSection, 
+    #questionDisplaySection, #gameDisplaySection, 
+    #resultSection {
+        width: 95%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+/* Smaller mobile view */
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #gameArea {
+        height: auto;
+        width: 100%;
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    #playerSetupSection, #categorySelectionSection, 
+    #questionDisplaySection, #gameDisplaySection, 
+    #resultSection {
+        width: 100%;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+}
