@@ -81,9 +81,9 @@ async function questions() {
         dropdown.options[selectedIndex].remove();
 
         // splitting questions by levels
-        const easy = await fetch(`https://the-trivia-api.com/v2/questions?categories=${category}&difficulty=easy&limit=2`);
-        const medium = await fetch(`https://the-trivia-api.com/v2/questions?categories=${category}&difficulty=medium&limit=2`);
-        const hard = await fetch(`https://the-trivia-api.com/v2/questions?categories=${category}&difficulty=hard&limit=2`);
+        const easy = await fetch(`https://the-trivia-api.com/api/questions?categories=${category}&difficulty=easy&limit=2`);
+        const medium = await fetch(`https://the-trivia-api.com/api/questions?categories=${category}&difficulty=medium&limit=2`);
+        const hard = await fetch(`https://the-trivia-api.com/api/questions?categories=${category}&difficulty=hard&limit=2`);
 
         // converting the raw data into json format
         const eQue = await easy.json();
